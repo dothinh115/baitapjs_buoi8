@@ -12,12 +12,13 @@ function addMainArr () {
     else {
         mainArr.push(mainArrValue);
         workName.querySelectorAll("input")[0].value = "";
+        var mainBadge = document.createElement("span");
+        mainBadge.className = "badge badge-info ml-1";
         for (var i = 0; i < mainArr.length; i++) {
-            var mainBadge = document.createElement("span");
-            mainBadge.className = "badge badge-info ml-1";
             mainBadge.innerText = mainArr[i];
+            showResult.append(mainBadge);
         }
-        showResult.append(mainBadge);
+        
     }
 }
 
