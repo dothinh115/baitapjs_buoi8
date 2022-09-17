@@ -237,7 +237,7 @@ function sntDauTien () {
     else {
         var soNT = [];
         for (var i = 0; i < mainArr.length; i++) {
-            if(checkSNT(mainArr[i])) {
+            if(checkSNT(mainArr[i]) && Number.isInteger(Number(mainArr[i]))) {
                 soNT.push(mainArr[i]);
             }
         }
@@ -305,10 +305,10 @@ function soSanhAmDuong () {
         var soSanhBadge = document.createElement("span");
         soSanhBadge.className = "badge badge-info";
         if(soAm > soDuong) {
-            soSanhBadge.innerText = "Số âm lớn hơn";
+            soSanhBadge.innerText = "Mảng có nhiều số âm hơn.";
         }
         else if (soDuong > soAm) {
-            soSanhBadge.innerText = "Số dương lớn hơn";
+            soSanhBadge.innerText = "Mảng có nhiều số dương hơn.";
         }
         else {
             soSanhBadge.innerText = "Số âm số dương bằng nhau";

@@ -6,6 +6,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <style>
+        .my-btn {
+            margin: 5px 5px 5px 0;
+        }
+    </style>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
@@ -27,50 +32,31 @@
                     Thêm
                 </button>
                 <div class="showMainArr w-100"></div>
-                <div class="row w-100 mt-2">
-                    <div class="col">
-                        <button class="btn btn-primary" onclick="timSoDuong();return false;">
-                            Tìm số dương
-                        </button>
-                    </div>
-                    <div class="col">
-                        <button class="btn btn-primary" onclick="demSoDuong();return false;">
-                            Đếm số dương 
-                        </button>
-                    </div>
-                    <div class="col">
-                        <button class="btn btn-primary" onclick="timSoNhoNhat();return false;">
-                            Tìm số nhỏ nhất
-                        </button>
-                    </div>
-                    <div class="col">
-                        <button class="btn btn-primary" onclick="timSoDuongNhoNhat();return false;">
-                            Số dương nhỏ nhất
-                        </button>
-                    </div>
-                    <div class="col">
-                        <button class="btn btn-primary" onclick="soChanCuoiCung();return false;">
-                            Số chẵn cuối
-                        </button>
-                    </div>
-                </div>
-                <div class="row mt-2">
-                    <div class="col">
-                        <button class="btn btn-primary" onclick="sapXep();return false;">
-                            Xếp tăng dần
-                        </button>
-                    </div>
-                    <div class="col">
-                        <button class="btn btn-primary" onclick="sntDauTien();return false;">
-                            Số nguyên tố đầu
-                        </button>
-                    </div>
-                    <div class="col">
-                        <button class="btn btn-primary" onclick="soSanhAmDuong();return false;">
-                            So sánh âm dương
-                        </button>
-                    </div>
-                </div>
+                    <button class="btn btn-primary my-btn" onclick="timSoDuong();return false;">
+                        Tìm số dương
+                    </button>
+                    <button class="btn btn-primary my-btn" onclick="demSoDuong();return false;">
+                        Đếm số dương 
+                    </button>
+                    <button class="btn btn-primary my-btn" onclick="timSoNhoNhat();return false;">
+                        Tìm số nhỏ nhất
+                    </button>
+                    <button class="btn btn-primary my-btn" onclick="timSoDuongNhoNhat();return false;">
+                        Số dương nhỏ nhất
+                    </button>
+                    <button class="btn btn-primary my-btn" onclick="soChanCuoiCung();return false;">
+                        Số chẵn cuối
+                    </button>
+                    <button class="btn btn-primary my-btn" onclick="sapXep();return false;">
+                        Xếp tăng dần
+                    </button>
+                    <button class="btn btn-primary my-btn" onclick="sntDauTien();return false;">
+                        Số nguyên tố đầu
+                    </button>
+                    <button class="btn btn-primary my-btn" onclick="soSanhAmDuong();return false;">
+                        So sánh âm dương
+                    </button>
+                
                 <div class="result w-100"></div> 
             </div>  
         </form>
@@ -102,7 +88,7 @@
 
         <hr>
         <h1>
-            Tìm số thực
+            Tìm số nguyên
         </h1>
         <p>
             Dùng phần nhập số bên trên để thêm số vào mảng rồi bấm vào nút bên dưới.
