@@ -30,7 +30,6 @@ function xoaPhanTu () {
     newArr.forEach(function(item) {
         mainArr.push(item.textContent);
     });
-    console.log(mainArr);
 }
 
 function checkMangRong (arr) {
