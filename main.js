@@ -195,6 +195,7 @@ function daoViTri () {
             for (var a = 0; a < mainArr.length; a++) {
                 var mainBadge = document.createElement("span");
                 mainBadge.className = "badge badge-info ml-1";
+                mainBadge.setAttribute("onclick","this.remove();xoaPhanTu();")
                 mainBadge.innerText = mainArr[a];
                 showResult.append(mainBadge);
             }
@@ -222,6 +223,7 @@ function sapXep () {
         for (var a = 0; a < mainArr.length; a++) {
             var mainBadge = document.createElement("span");
             mainBadge.className = "badge badge-info ml-1";
+            mainBadge.setAttribute("onclick","this.remove();xoaPhanTu();")
             mainBadge.innerText = mainArr[a];
             showResult.append(mainBadge);
         }
