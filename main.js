@@ -78,8 +78,8 @@ function timSoNhoNhat () {
     }
     else {
         showResult.innerHTML = "";
-        var minNumber = mainArr[0];
         for (var i = 0; i < mainArr.length; i++) {
+        var minNumber = mainArr[i];
         if(mainArr[i] < minNumber) {
             minNumber = mainArr[i];
         }
