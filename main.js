@@ -113,21 +113,27 @@ function timSoDuongNhoNhat () {
     }
     else {
         showResult.innerHTML = "";
-        var minNumber = mainArr[0];
+        var soDuong = []
         mainArr.forEach(function(item) {
-            if(item < minNumber  && item > 0) {
+            if (item > 0) {
+                soDuong.push(item);
+            }
+        });
+        var minNumber = soDuong[0];
+        soDuong.forEach(function(item) {
+            if (item < minNumber) {
                 minNumber = item;
             }
         });
         
-    var preBadge = document.createElement("span");
-    preBadge.className = "badge badge-success mr-2";
-    preBadge.innerText = "Số dương nhỏ nhất trong mảng là: "
-    var minNumberBadge = document.createElement("span");
-    minNumberBadge.className = "badge badge-info";
-    minNumberBadge.innerText = minNumber;
-    showResult.append(preBadge);
-    showResult.append(minNumberBadge);
+        var preBadge = document.createElement("span");
+        preBadge.className = "badge badge-success mr-2";
+        preBadge.innerText = "Số dương nhỏ nhất trong mảng là: "
+        var minNumberBadge = document.createElement("span");
+        minNumberBadge.className = "badge badge-info";
+        minNumberBadge.innerText = minNumber;
+        showResult.append(preBadge);
+        showResult.append(minNumberBadge);
     }
 }
 
@@ -220,13 +226,14 @@ function sapXep () {
                 }
             }
         }
-        for (var a = 0; a < mainArr.length; a++) {
+        mainArr.forEach(function(item) {
             var mainBadge = document.createElement("span");
             mainBadge.className = "badge badge-info ml-1";
             mainBadge.setAttribute("onclick","this.remove();xoaPhanTu();")
-            mainBadge.innerText = mainArr[a];
+            mainBadge.innerText = item;
             showResult.append(mainBadge);
-        }
+        });
+        console.log(mainArr);
     }
 }
 
