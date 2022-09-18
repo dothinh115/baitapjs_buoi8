@@ -10,16 +10,27 @@ function addMainArr () {
         alert("Không được để trống");
     }
     else {
-        mainArr.push(mainArrValue);
+        mainArr.push(Number(mainArrValue));
         workName.querySelectorAll("input")[0].value = "";
         var mainBadge = document.createElement("span");
         mainBadge.className = "badge badge-info ml-1";
+        mainBadge.setAttribute("onclick","this.remove();xoaPhanTu();")
         for (var i = 0; i < mainArr.length; i++) {
             mainBadge.innerText = mainArr[i];
             showResult.append(mainBadge);
         }
         
     }
+}
+
+function xoaPhanTu () {
+    var find = document.querySelector(".showMainArr");
+    var newArr = find.querySelectorAll("span");
+    mainArr = [];
+    newArr.forEach(function(item) {
+        mainArr.push(item.textContent);
+    });
+    console.log(mainArr);
 }
 
 function checkMangRong (arr) {
@@ -43,8 +54,8 @@ function timSoDuong () {
                 var soDuongBadge = document.createElement("span");
                 soDuongBadge.className = "badge badge-info ml-1";
                 soDuongBadge.innerText = mainArr[i];
+                showResult.append(soDuongBadge);
             }
-            showResult.append(soDuongBadge);
         }
     }
 }
@@ -78,8 +89,8 @@ function timSoNhoNhat () {
     }
     else {
         showResult.innerHTML = "";
+        var minNumber = mainArr[0];
         for (var i = 0; i < mainArr.length; i++) {
-        var minNumber = mainArr[i];
         if(mainArr[i] < minNumber) {
             minNumber = mainArr[i];
         }
@@ -104,11 +115,12 @@ function timSoDuongNhoNhat () {
     else {
         showResult.innerHTML = "";
         var minNumber = mainArr[0];
-        for (var i = 0; i < mainArr.length; i++) {
-        if(mainArr[i] < minNumber && mainArr[i] >= 0) {
-            minNumber = mainArr[i];
-        }
-    }
+        mainArr.forEach(function(item) {
+            if(item < minNumber  && item > 0) {
+                minNumber = item;
+            }
+        });
+        
     var preBadge = document.createElement("span");
     preBadge.className = "badge badge-success mr-2";
     preBadge.innerText = "Số dương nhỏ nhất trong mảng là: "
@@ -159,29 +171,34 @@ function daoViTri () {
     var vitri__2 = workName.querySelectorAll("input")[1].value;
     var value__1 = mainArr[vitri__1 - 1];
     var value__2 = mainArr[vitri__2 - 1];
-    for(var i = 0; i < mainArr.length; i++) {
-        newArr[i] = mainArr[i];
+    if (checkMangRong(mainArr)) {
+        alert("Nhập số vào mảng đã!");
     }
-    newArr[vitri__1 - 1] = value__2;
-    newArr[vitri__2 - 1] = value__1;
-    for (var j = 0; j < newArr.length; j++) {
-        if(newArr[j] === undefined) {
-            alert("Nhập vị trí cho hợp lý!");
+    else {
+        for(var i = 0; i < mainArr.length; i++) {
             newArr[i] = mainArr[i];
-            checkHopLe = false;
-            break;
         }
-    }
-    
-    if(checkHopLe) {
-        mainArr = newArr;
-        var showResult = document.querySelectorAll(".input-group")[0].querySelector(".showMainArr");
-        showResult.innerHTML = "";
-        for (var a = 0; a < mainArr.length; a++) {
-            var mainBadge = document.createElement("span");
-            mainBadge.className = "badge badge-info ml-1";
-            mainBadge.innerText = mainArr[a];
-            showResult.append(mainBadge);
+        newArr[vitri__1 - 1] = value__2;
+        newArr[vitri__2 - 1] = value__1;
+        for (var j = 0; j < newArr.length; j++) {
+            if(newArr[j] === undefined) {
+                alert("Nhập vị trí cho hợp lý!");
+                newArr[i] = mainArr[i];
+                checkHopLe = false;
+                break;
+            }
+        }
+        
+        if(checkHopLe) {
+            mainArr = newArr;
+            var showResult = document.querySelectorAll(".input-group")[0].querySelector(".showMainArr");
+            showResult.innerHTML = "";
+            for (var a = 0; a < mainArr.length; a++) {
+                var mainBadge = document.createElement("span");
+                mainBadge.className = "badge badge-info ml-1";
+                mainBadge.innerText = mainArr[a];
+                showResult.append(mainBadge);
+            }
         }
     }
 }
@@ -272,14 +289,13 @@ function timSoNguyen () {
                 soNguyen.push(mainArr[i]);
             }
         }
-        var preBadge = document.createElement("span");
-        preBadge.className = "badge badge-success mr-2";
-        preBadge.innerText = "Số nguyên: ";
+        
         var soNguyenBadge = document.createElement("span");
         soNguyenBadge.className = "badge badge-info mr-1";
         soNguyenBadge.innerText = soNguyen.length;
-        showResult.append(preBadge);
+        showResult.append("Có ");
         showResult.append(soNguyenBadge);
+        showResult.append(" số nguyên trong mảng.");
     }
 }
 
