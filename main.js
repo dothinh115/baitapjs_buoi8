@@ -209,6 +209,10 @@ function daoViTri () {
     }
 }
 
+function numSort (a, b) {
+    return a - b;
+}
+
 function sapXep () {
     var workName = document.querySelectorAll(".input-group")[0];
     var showResult = workName.querySelector(".showMainArr");
@@ -217,23 +221,14 @@ function sapXep () {
         alert("Nhập số vào mảng đã!");
     }
     else {
-        for (var i = 0; i < mainArr.length - 1; i++) {
-            for (j = i+1; j < mainArr.length; j++) {
-                if(mainArr[i] > mainArr[j]) {
-                    var hold = mainArr[i];
-                    mainArr[i] = mainArr[j];
-                    mainArr[j] = hold;
-                }
-            }
-        }
+        mainArr.sort(numSort);
         mainArr.forEach(function(item) {
             var mainBadge = document.createElement("span");
             mainBadge.className = "badge badge-info ml-1";
-            mainBadge.setAttribute("onclick","this.remove();xoaPhanTu();")
+            mainBadge.setAttribute("onclick", "this.remove();xoaPhanTu();")
             mainBadge.innerText = item;
             showResult.append(mainBadge);
         });
-        console.log(mainArr);
     }
 }
 
